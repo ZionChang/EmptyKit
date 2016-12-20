@@ -1,18 +1,56 @@
 EmptyKit
 =======
+> A lightweight, swift library for displaying emptyView whenever the view(tableView/collectionView) has no content to display, just like [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
+
+[![Swift Version][swift-image]][swift-url]
 [![Pod Version](http://img.shields.io/cocoapods/v/EmptyKit.svg)](http://cocoadocs.org/docsets/EmptyKit/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
+[![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
-A lightweight, swift library for displaying emptyView whenever the view(tableView/collectionView) has no content to display, just like [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
-## Usage
+## Requirements
 
-### import
+- iOS 8.0+
+- Xcode 8.0+
 
-```swift
-import EmptyKit
+## Installation
+
+###Carthage
+Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/EmptyKit.framework` to an iOS project.
 
 ```
+github "eilianlove/EmptyKit"
+```
+
+Run `carthage update` to build the framework and drag the built `EmptyKit.framework` into your Xcode project.
+
+To get the full benefits import `EmptyKit`
+
+``` swift
+import EmptyKit
+```
+
+###CocoaPods
+
+You can use [CocoaPods](http://cocoapods.org/) to install `EmptyKit` by adding it to your `Podfile`:
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+pod 'EmptyKit', '~> 3.0.1'
+```
+
+Then, run the following command:
+
+```ruby
+$ pod install
+```
+
+### Manually
+1. Download and drop ```Empty``` in your project.  
+2. Congratulations!  
+
+## Usage
 
 ### Protocol Conformance
 
@@ -133,22 +171,8 @@ extension ProjectNameViewController: ProjectNameEmptyDelegate {}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
+[swift-url]: https://swift.org/
 
 
 

@@ -129,7 +129,7 @@ public protocol EmptyDelegate: class {
 public extension EmptyDelegate {
     
     func emptyShouldFadeIn(in view: UIView) -> Bool {
-        return false
+        return true
     }
     
     func emptyShouldDisplay(in view: UIView) -> Bool {

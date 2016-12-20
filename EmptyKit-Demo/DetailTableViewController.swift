@@ -41,13 +41,12 @@ final class DetailTableViewController: UITableViewController {
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         tableView.endUpdates()
     }
-    
+ 
     @IBAction func remove(_ sender: Any) {
         allDatasource.removeAll()
         tableView.reloadData()
     }
     
-
 }
 
 // MARK: - Setup
@@ -85,17 +84,22 @@ extension DetailTableViewController: EmptyDataSource {
         return UIColor.blue
     }
     
+    func customViewForEmpty(in view: UIView) -> UIView? {
+        return nil
+    }
+    
+
 }
 
 extension DetailTableViewController: EmptyDelegate {
    
-//    func emptyButton(_ button: UIButton, didTappedIn view: UIView) {
-//        print( #function, #line, type(of: self))
-//    }
-//    
-//    func emptyView(_ emptyView: UIView, didTapppedIn view: UIView) {
-//        print( #function, #line, type(of: self))
-//    }
+    func emptyButton(_ button: UIButton, didTappedIn view: UIView) {
+        print( #function, #line, type(of: self))
+    }
+    
+    func emptyView(_ emptyView: UIView, didTapppedIn view: UIView) {
+        print( #function, #line, type(of: self))
+    }
 }
 
 

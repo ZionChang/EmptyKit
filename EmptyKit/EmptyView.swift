@@ -168,9 +168,8 @@ internal extension EmptyView {
         }
         
         if let customView = customView {
-            self.addConstraints(withVisualFormat: "V:|[contentView]|", metrics: nil, views: ["contentView": contentView])
-            contentView.addConstraints(withVisualFormat: "H:|[customView]|", metrics: nil, views: ["customView": customView])
-            contentView.addConstraints(withVisualFormat: "V:|[customView]|", metrics: nil, views: ["customView": customView])
+            contentView.addEquallyRelatedConstraint(with: customView, attribute: .centerX)
+            contentView.addEquallyRelatedConstraint(with: customView, attribute: .centerY)
         }
         
         // Assign the image view's horizontal constraints
@@ -277,7 +276,7 @@ private extension EmptyView {
 }
 
 // MARK: - UIView extension
-private extension UIView {
+extension UIView {
     
     func addConstraints(withVisualFormat format: String, metrics: [String : Any]?, views: [String : Any]) {
         let noLayoutOptions = NSLayoutFormatOptions(rawValue: 0)

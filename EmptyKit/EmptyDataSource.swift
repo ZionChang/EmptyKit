@@ -95,7 +95,7 @@ public protocol EmptyDataSource: class {
      
      - parameter view: Empty view's superview.
      
-     - returns: what image you want to display.
+     - returns: A vertical space.
      */
     func verticalSpaceForEmpty(in view: UIView) -> CGFloat
     /**
@@ -121,14 +121,14 @@ public protocol EmptyDataSource: class {
      */
     func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString?
     /**
-     Ask the datasource for a title you want to display in the different state of button. Default is nil
+     Ask the datasource for a image you want to display in the different state of button. Default is nil
      
      - author: archerzz
      - date: 2016-11-23
      
      - parameter view: Empty view's superview
      
-     - returns: A title you want to display in the different state of button
+     - returns: A image you want to display in the different state of button
      */
     func buttonImageForEmpty(forState state: UIControlState, in view: UIView) -> UIImage?
     /**
@@ -143,7 +143,7 @@ public protocol EmptyDataSource: class {
      */
     func buttonBackgroundImageForEmpty(forState state: UIControlState, in view: UIView) -> UIImage?
     /**
-     Ask the datasource for a background color you want to display in the different state of button. Default is nil
+     Ask the datasource for a background color you want to display in the different state of button. Default is clear
      
      - author: archerzz
      - date: 2016-11-23
@@ -159,7 +159,7 @@ public protocol EmptyDataSource: class {
      - author: archerzz
      - date: 2016-11-23
      
-     - parameter view: the opposite number of the navigationbar height if isNavigationBarHidden is false and navigationBar.isTranslucent is true plus the half of the tableHeaderView's height, otherwise return 0.
+     - parameter view: Empty view's superview.
      
      - returns: A minimum width of the button.
      */
@@ -277,7 +277,7 @@ public extension EmptyDataSource where Self: UIViewController {
      */
     func verticalOffsetForEmpty(in view: UIView) -> CGFloat {
         if let nav = self.navigationController, !nav.isNavigationBarHidden, nav.navigationBar.isTranslucent {
-            return -nav.navigationBar.bounds.height
+            return -nav.navigationBar.frame.maxY
         }
         return 0
     }
@@ -307,7 +307,7 @@ public extension EmptyDataSource where Self: UITableViewController {
     func verticalOffsetForEmpty(in view: UIView) -> CGFloat {
         var offset: CGFloat = 0
         if let nav = self.navigationController, !nav.isNavigationBarHidden, nav.navigationBar.isTranslucent {
-            offset -= nav.navigationBar.bounds.height
+            offset -= nav.navigationBar.frame.maxY
         }
         if let tableHeaderView = tableView.tableHeaderView, !tableHeaderView.isHidden {
             offset -= tableHeaderView.bounds.height / 2

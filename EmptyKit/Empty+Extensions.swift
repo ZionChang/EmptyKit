@@ -14,6 +14,7 @@ private var datasourceKey: Void?
 private var delegateKey: Void?
 private var emptyViewKey: Void?
 private var customViewKey: Void?
+private var datasourceMakerKey: Void?
 private let emptyImageViewAnimationKey = "emptyImageViewAnimationKey"
 
 // MARK: - Common methods
@@ -127,6 +128,7 @@ public extension Empty where Base: UIScrollView {
         }
     }
     
+    
     fileprivate var customView: UIView? {
         get {
             return objc_getAssociatedObject(base, &customViewKey) as? UIView
@@ -165,8 +167,10 @@ public extension Empty where Base: UIScrollView {
     
 }
 
-// MARK: - Base: UIScrollView Computed Properties
+// MARK: - Base: UIScrollView Funcs
 public extension Empty where Base: UIScrollView {
+    
+    
     /**
      reload empty view
      
@@ -258,10 +262,12 @@ public extension Empty where Base: UIScrollView {
             
         }
         view.prepareForReuse()
-        // customView
+       
         if let customView = dataSource.customViewForEmpty(in: base) {
+            // customView
             view.customView = customView
         } else {
+            view.customView = nil
             // own
             view.titleLabel.attributedText = dataSource.titleForEmpty(in: base)
             view.detailLabel.attributedText = dataSource.descriptionForEmpty(in: base)
