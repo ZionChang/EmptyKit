@@ -247,7 +247,7 @@ public extension Empty where Base: UIScrollView {
         }
         
         if view.superview == nil  {
-            if base.subviews.count > 1 {
+            if base is UITableView && base is UICollectionView && base.subviews.count > 1 {
                 base.insertSubview(view, at: 0)
             } else {
                 base.addSubview(view)
