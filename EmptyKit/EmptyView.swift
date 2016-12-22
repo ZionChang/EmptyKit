@@ -102,7 +102,7 @@ final class EmptyView: UIView {
     }
     
     // MARK: - Override
-    public override  func didMoveToSuperview() {
+    public override func didMoveToSuperview() {
         guard fadeInOnDisplay == true else {
             self.contentView.alpha = 1
             return
@@ -170,6 +170,8 @@ internal extension EmptyView {
         if let customView = customView {
             contentView.addEquallyRelatedConstraint(with: customView, attribute: .centerX)
             contentView.addEquallyRelatedConstraint(with: customView, attribute: .centerY)
+            contentView.addConstraints(withVisualFormat: "H:|[customView]|", metrics: nil, views: ["customView": customView])
+            contentView.addConstraints(withVisualFormat: "V:|[customView]|", metrics: nil, views: ["customView": customView])
         }
         
         // Assign the image view's horizontal constraints
