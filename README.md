@@ -104,11 +104,11 @@ Or you can implement other methods of EmptyDataSource
 ```swift
 extension DetailTableViewController: EmptyDelegate {
 
-    func emptyButton(_ button: UIButton, didTappedIn view: UIView) {
+    func emptyButton(_ button: UIButton, tappedIn view: UIView) {
         print( #function, #line, type(of: self))
     }
 
-    func emptyView(_ emptyView: UIView, didTapppedIn view: UIView) {
+    func emptyView(_ emptyView: UIView, tappedIn view: UIView) {
         print( #function, #line, type(of: self))
     }
 }
