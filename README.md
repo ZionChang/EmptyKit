@@ -37,7 +37,7 @@ You can use [CocoaPods](http://cocoapods.org/) to install `EmptyKit` by adding i
 ```ruby
 platform :ios, '8.0'
 use_frameworks!
-pod 'EmptyKit', '~> 3.0.1'
+pod 'EmptyKit', '~> 3.0.2'
 ```
 
 Then, run the following command:
