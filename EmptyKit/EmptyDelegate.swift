@@ -75,9 +75,9 @@ public protocol EmptyDelegate: class {
      - parameter button: tapped button
      - parameter view:   empty view's superview
      */
-    func emptyButton(_ button: UIButton, didTappedIn view: UIView)
+    func emptyButton(_ button: UIButton, tappedIn view: UIView)
     /**
-     Tell the delegate button has been tapped in empty
+     Tell the delegate emptyView has been tapped in empty
      
      - author: archerzz
      - date: 2016-11-22
@@ -85,7 +85,7 @@ public protocol EmptyDelegate: class {
      - parameter emptyView: emptyView which is displayed
      - parameter view:      empty view's superview
      */
-    func emptyView(_ emptyView: UIView, didTapppedIn view: UIView)
+    func emptyView(_ emptyView: UIView, tappedIn view: UIView)
     /**
      Tell the delegate to know emptyView will appear
      
@@ -148,10 +148,10 @@ public extension EmptyDelegate {
         return true
     }
     
-    func emptyButton(_ button: UIButton, didTappedIn view: UIView) {
+    func emptyButton(_ button: UIButton, tappedIn view: UIView) {
     }
     
-    func emptyView(_ emptyView: UIView, didTapppedIn view: UIView) {
+    func emptyView(_ emptyView: UIView, tappedIn view: UIView) {
     }
     
     func emptyWillAppear(in view: UIView) {

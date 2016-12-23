@@ -54,13 +54,13 @@ fileprivate extension UIScrollView {
             guard let strongSelf = self else {
                 return
             }
-            strongSelf.ept.delegate?.emptyButton(button, didTappedIn: strongSelf)
+            strongSelf.ept.delegate?.emptyButton(button, tappedIn: strongSelf)
         }
         ept.emptyView?.didTappedEmptyView = { [weak self] view in
             guard let strongSelf = self else {
                 return
             }
-            strongSelf.ept.delegate?.emptyView(view, didTapppedIn: strongSelf)
+            strongSelf.ept.delegate?.emptyView(view, tappedIn: strongSelf)
         }
     }
 }
