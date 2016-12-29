@@ -8,8 +8,7 @@ EmptyKit
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
-* [English](#English)
-* [中文](#Chinese)
+* [中文](#user-content-中文介绍)
 
 <span id = "English">
 
