@@ -8,6 +8,11 @@ EmptyKit
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![Platform](https://img.shields.io/cocoapods/p/LFAlertController.svg?style=flat)](http://cocoapods.org/pods/LFAlertController)
 
+* [English](#English)
+* [中文](#Chinese)
+
+<span id = "English">
+
 ## Requirements
 
 - iOS 8.0+
@@ -16,9 +21,9 @@ EmptyKit
 ## Installation
 
 ###Carthage
-Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/EmptyKit.framework` to an iOS project.
+Create a `Cartfile` that lists the framework. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/EmptyKit.framework` to an iOS project.
 
-```
+```ruby
 github "eilianlove/EmptyKit"
 ```
 
@@ -37,7 +42,7 @@ You can use [CocoaPods](http://cocoapods.org/) to install `EmptyKit` by adding i
 ```ruby
 platform :ios, '8.0'
 use_frameworks!
-pod 'EmptyKit', '~> 3.0.2'
+pod 'EmptyKit', '~> 3.0.0'
 ```
 
 Then, run the following command:
@@ -104,11 +109,11 @@ Or you can implement other methods of EmptyDataSource
 ```swift
 extension DetailTableViewController: EmptyDelegate {
 
-    func emptyButton(_ button: UIButton, tappedIn view: UIView) {
+    func emptyButton(_ button: UIButton, didTappedIn view: UIView) {
         print( #function, #line, type(of: self))
     }
 
-    func emptyView(_ emptyView: UIView, tappedIn view: UIView) {
+    func emptyView(_ emptyView: UIView, didTapppedIn view: UIView) {
         print( #function, #line, type(of: self))
     }
 }
@@ -140,6 +145,8 @@ self.collectionView.ept.reloadData()
 
 ### Global Configuration
 
+1. **Conform EmptyDataSource or EmptyDelegate**
+
 ```swift
 protocol ProjectNameEmptyDataSource: EmptyDataSource {}
 extension ProjectNameEmptyDataSource {
@@ -163,13 +170,183 @@ final class ProjectNameViewController: UITableViewController {
         tableView.ept.delegate = self
     }
 }
+```
 
+2. **Remember use your custom protocol**
+
+```swift
 extension ProjectNameViewController: ProjectNameEmptyDataSource {}
 extension ProjectNameViewController: ProjectNameEmptyDelegate {}
 
 ```
 
+</span>
 
+<span id = "Chinese">
+# 中文介绍
+
+## 要求
+
+* iOS8.0+
+* Xcode 8.0+
+
+## 安装
+### Cathage
+首先需要安装[Carthage](https://github.com/Carthage/Carthage#if-youre-building-for-ios)
+
+创建一个`Cartfile`，在其中列出需要的framework
+```ruby
+github "eilianlove/EmptyKit"	
+```
+
+命令行运行`carthage update`来构建framework，并且将`EmptyKit.framework`拖拽到Xcode中。
+
+```swift
+import EmptyKit
+```
+### CocoaPods
+
+创建`Podfile`
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+pod 'EmptyKit', '~> 3.0.2'
+```
+
+然后运行
+
+```ruby
+pod install
+```
+### 手动
+1. 下载并且将EmptyKit文件夹拖拽至你的工程
+2. 恭喜！
+
+## 用法
+
+### 遵守协议
+
+```swift
+final class DetailTableViewController: UITableViewController { 
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+        tableView.ept.dataSource = self
+        tableView.ept.delegate = self
+    }
+
+}
+```
+
+### 数据源实现
+
+```swift
+extension DetailTableViewController: EmptyDataSource {
+
+    func imageForEmpty(in view: UIView) -> UIImage? {
+        return UIImage(named: "empty_data_bookshelf")
+    }
+
+    func titleForEmpty(in view: UIView) -> NSAttributedString? {
+        let title = "no data"
+        let font = UIFont.systemFont(ofSize: 14)
+        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: font]
+        return NSAttributedString(string: title, attributes: attributes)
+    }
+
+    func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString? {
+        let title = "click me"
+        let font = UIFont.systemFont(ofSize: 17)
+        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font]
+        return NSAttributedString(string: title, attributes: attributes)
+    }
+
+    func buttonBackgroundColorForEmpty(in view: UIView) -> UIColor {
+        return UIColor.blue
+    }
+
+}
+```
+或者你能实现`EmptyDataSource`中的其他方法
+
+### 代理实现
+
+```swift
+extension DetailTableViewController: EmptyDelegate {
+
+    func emptyButton(_ button: UIButton, tappedIn view: UIView) {
+        print( #function, #line, type(of: self))
+    }
+
+    func emptyView(_ emptyView: UIView, tappedIn view: UIView) {
+        print( #function, #line, type(of: self))
+    }
+}
+```
+
+### 刷新布局
+
+```swift
+self.tableView.reloadData()
+```
+或者
+
+```swift
+self.collectionView.reloadData()
+```
+
+
+### 强制刷新空视图
+
+```swift
+self.tableView.ept.reloadData()
+```
+或者
+
+```swift
+self.collectionView.ept.reloadData()
+```
+
+### 全局配置
+
+* **遵守EmptyDataSource或者EmptyDelegate**
+
+```swift
+protocol ProjectNameEmptyDataSource: EmptyDataSource {}
+extension ProjectNameEmptyDataSource {
+    // implement any method you want
+    func backgroundColorForEmpty(in view: UIView) -> UIColor {
+        return UIColor.white
+    }
+    // other methods
+}
+
+protocol ProjectNameEmptyDelegate: EmptyDelegate {}
+extension ProjectNameEmptyDelegate {
+    // just like the ProjectNameEmptyDataSource
+}
+
+final class ProjectNameViewController: UITableViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.tableFooterView = UIView()
+        tableView.ept.dataSource = self
+        tableView.ept.delegate = self
+    }
+}
+```
+
+* **一旦全局配置，就使用你配置的协议名字**
+
+```swift
+extension ProjectNameViewController: ProjectNameEmptyDataSource {}
+extension ProjectNameViewController: ProjectNameEmptyDelegate {}
+
+```
+
+</span>
 
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
 [swift-url]: https://swift.org/
