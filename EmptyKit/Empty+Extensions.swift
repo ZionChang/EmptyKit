@@ -154,13 +154,19 @@ public extension Empty where Base: UIScrollView {
     }
     
     fileprivate var itemsCount: Int {
-        if let tableView = base as? UITableView {
-            let sections = tableView.numberOfSections
-            return itemsCount(in: sections, with: tableView.numberOfRows(inSection:))
+        if let tableView = base as? UITableView, let dataSource = tableView.dataSource {
+            if let sections = dataSource.numberOfSections?(in: tableView) {
+                return itemsCount(in: sections, with: { (section) -> Int in
+                    return dataSource.tableView(tableView, numberOfRowsInSection: section)
+                })
+            }
         }
-        if let collectionView = base as? UICollectionView {
-            let sections = collectionView.numberOfSections
-            return itemsCount(in: sections, with: collectionView.numberOfItems(inSection:))
+        if let collectionView = base as? UICollectionView, let dataSource = collectionView.dataSource {
+            if let sections = dataSource.numberOfSections?(in: collectionView) {
+                return itemsCount(in: sections, with: { (section) -> Int in
+                    return dataSource.collectionView(collectionView, numberOfItemsInSection: section)
+                })
+            }
         }
         return 0
     }
@@ -230,7 +236,7 @@ public extension Empty where Base: UIScrollView {
      */
     fileprivate func setupEmptyView(withItemsCount itemsCount: Int) -> Bool {
         guard let dataSource = dataSource, itemsCount == 0 else {
-            invalidate()
+//            invalidate()
             return false
         }
         if let shoudldDisplay = delegate?.emptyShouldDisplay(in: base), shoudldDisplay == false {
