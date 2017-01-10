@@ -236,7 +236,7 @@ public extension Empty where Base: UIScrollView {
      */
     fileprivate func setupEmptyView(withItemsCount itemsCount: Int) -> Bool {
         guard let dataSource = dataSource, itemsCount == 0 else {
-//            invalidate()
+            invalidate()
             return false
         }
         if let shoudldDisplay = delegate?.emptyShouldDisplay(in: base), shoudldDisplay == false {
