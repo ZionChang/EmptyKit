@@ -155,18 +155,16 @@ public extension Empty where Base: UIScrollView {
     
     fileprivate var itemsCount: Int {
         if let tableView = base as? UITableView, let dataSource = tableView.dataSource {
-            if let sections = dataSource.numberOfSections?(in: tableView) {
-                return itemsCount(in: sections, with: { (section) -> Int in
-                    return dataSource.tableView(tableView, numberOfRowsInSection: section)
-                })
-            }
+            let sections = dataSource.numberOfSections?(in: tableView) ?? 1
+            return itemsCount(in: sections, with: { (section) -> Int in
+                return dataSource.tableView(tableView, numberOfRowsInSection: section)
+            })
         }
         if let collectionView = base as? UICollectionView, let dataSource = collectionView.dataSource {
-            if let sections = dataSource.numberOfSections?(in: collectionView) {
-                return itemsCount(in: sections, with: { (section) -> Int in
-                    return dataSource.collectionView(collectionView, numberOfItemsInSection: section)
-                })
-            }
+            let sections = dataSource.numberOfSections?(in: collectionView) ?? 1
+            return itemsCount(in: sections, with: { (section) -> Int in
+                return dataSource.collectionView(collectionView, numberOfItemsInSection: section)
+            })
         }
         return 0
     }
