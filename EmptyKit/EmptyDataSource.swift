@@ -310,7 +310,7 @@ public extension EmptyDataSource where Self: UITableViewController {
             offset -= nav.navigationBar.frame.maxY / 2
         }
         if let tableHeaderView = tableView.tableHeaderView, !tableHeaderView.isHidden {
-            offset -= tableHeaderView.bounds.height / 2
+            return 0
         }
         return offset
     }
