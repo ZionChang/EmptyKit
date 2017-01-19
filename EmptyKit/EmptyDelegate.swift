@@ -44,6 +44,14 @@ public protocol EmptyDelegate: class {
      - returns: true if the empty should allow touch
      */
     func emptyShouldAllowTouch(in view: UIView) -> Bool
+    
+    
+    /// Asks the delegate to know if the empty dataset should enble tap gesture whick is added to emtpyView . Default is ture
+    ///
+    /// - Parameter view: empty view's superview
+    /// - Returns: true if the empty enable tap
+    func emptyShouldEnableTapGesture(in view: UIView) -> Bool
+    
     /**
      Asks the delegate to know if the empty dataset should allow scroll in when displayed. Default is true.
      
@@ -137,6 +145,10 @@ public extension EmptyDelegate {
     }
     
     func emptyShouldAllowTouch(in view: UIView) -> Bool {
+        return true
+    }
+    
+    func emptyShouldEnableTapGesture(in view: UIView) -> Bool {
         return true
     }
     

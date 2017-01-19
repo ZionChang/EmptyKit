@@ -57,10 +57,12 @@ fileprivate extension UIScrollView {
             strongSelf.ept.delegate?.emptyButton(button, tappedIn: strongSelf)
         }
         ept.emptyView?.didTappedEmptyView = { [weak self] view in
-            guard let strongSelf = self else {
+            guard let strongSelf = self, let delegate = strongSelf.ept.delegate else {
                 return
             }
-            strongSelf.ept.delegate?.emptyView(view, tappedIn: strongSelf)
+            if delegate.emptyShouldEnableTapGesture(in: view) {
+                delegate.emptyView(view, tappedIn: strongSelf)
+            }
         }
     }
 }
