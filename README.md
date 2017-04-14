@@ -350,5 +350,9 @@ extension ProjectNameViewController: ProjectNameEmptyDelegate {}
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
 [swift-url]: https://swift.org/
 
+### License
+
+EmptyKit is licensed under the MIT License, please see the LICENSE file.
+
 
 
