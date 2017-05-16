@@ -48,6 +48,22 @@ final class EmptyView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let inset: UIEdgeInsets
+        if let tableView = superview as? UITableView {
+            inset = tableView.contentInset
+        } else if let collectionView = superview as? UICollectionView {
+            inset = collectionView.contentInset
+        } else {
+            inset = UIEdgeInsets.zero
+        }
+    
+        for constraint in superview?.constraints ?? [] where constraint.firstAttribute == .height {
+            constraint.constant = -inset.top - inset.bottom
+        }
+    }
+    
     // MARK: - Override
     public override func didMoveToSuperview() {
         guard fadeInOnDisplay == true else {

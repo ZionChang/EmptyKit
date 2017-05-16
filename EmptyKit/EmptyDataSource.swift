@@ -306,7 +306,7 @@ public extension EmptyDataSource where Self: UITableViewController {
      */
     func verticalOffsetForEmpty(in view: UIView) -> CGFloat {
         var offset: CGFloat = 0
-        if let nav = self.navigationController, !nav.isNavigationBarHidden {
+        if let nav = self.navigationController, !nav.isNavigationBarHidden, nav.navigationBar.isTranslucent {
             offset -= nav.navigationBar.frame.maxY / 2
         }
         if let tableHeaderView = tableView.tableHeaderView, !tableHeaderView.isHidden {
@@ -316,6 +316,9 @@ public extension EmptyDataSource where Self: UITableViewController {
     }
     
 }
+
+
+
 
 
 

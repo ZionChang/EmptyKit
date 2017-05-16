@@ -259,12 +259,13 @@ public extension Empty where Base: UIScrollView {
                 base.addSubview(view)
             }
             view.translatesAutoresizingMaskIntoConstraints = false
-            base.addConstraint(NSLayoutConstraint(item: view, attribute: .leading, relatedBy: .equal, toItem: base, attribute: .leading, multiplier: 1, constant: 0))
-            base.addConstraint(NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: base, attribute: .trailing, multiplier: 1, constant: 0))
+            base.addConstraint(NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: base, attribute: .left, multiplier: 1, constant: 0))
+            base.addConstraint(NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: base, attribute: .right, multiplier: 1, constant: 0))
             base.addConstraint(NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: base, attribute: .top, multiplier: 1, constant: 0))
             base.addConstraint(NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: base, attribute: .bottom, multiplier: 1, constant: 0))
-            base.addConstraint(NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: base, attribute: .width, multiplier: 1, constant: 0))
-            base.addConstraint(NSLayoutConstraint(item: view, attribute: .height, relatedBy: .equal, toItem: base, attribute: .height, multiplier: 1, constant: 0))
+            let inset = base.contentInset
+            base.addConstraint(NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: base, attribute: .width, multiplier: 1, constant: -inset.left - inset.right))
+            base.addConstraint(NSLayoutConstraint(item: view, attribute: .height , relatedBy: .equal, toItem: base, attribute: .height, multiplier: 1, constant: -inset.top - inset.bottom))
             
         }
         view.prepareForReuse()
