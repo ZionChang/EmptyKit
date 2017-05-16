@@ -29,6 +29,13 @@ final class DetailCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         self.collectionView?.ept.delegate = self
         self.collectionView?.ept.dataSource = self
+        
+        let indent: CGFloat = 20.0
+        
+        collectionView?.contentInset = UIEdgeInsets(top: indent, left: indent, bottom: indent, right: indent)
+        
+        
+        
     }
     
     @IBAction func add(_ sender: Any) {
