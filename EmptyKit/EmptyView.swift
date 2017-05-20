@@ -50,17 +50,19 @@ final class EmptyView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        guard self.frame != CGRect.zero else { return }
         let inset: UIEdgeInsets
-        if let tableView = superview as? UITableView {
+        if let tableView = superview as? UIScrollView {
             inset = tableView.contentInset
-        } else if let collectionView = superview as? UICollectionView {
-            inset = collectionView.contentInset
         } else {
             inset = UIEdgeInsets.zero
         }
-    
-        for constraint in superview?.constraints ?? [] where constraint.firstAttribute == .height {
-            constraint.constant = -inset.top - inset.bottom
+        
+        for constraint in superview?.constraints ?? [] where constraint.firstAttribute == .height  {
+            if constraint.firstItem is EmptyView || constraint.secondItem is EmptyView {
+                let constant = -inset.top - inset.bottom
+                constraint.constant = constant
+            }
         }
     }
     
