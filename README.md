@@ -23,7 +23,7 @@ EmptyKit
 Create a `Cartfile` that lists the framework. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/EmptyKit.framework` to an iOS project.
 
 ```ruby
-github "eilianlove/EmptyKit"
+github "ZionChang/EmptyKit"
 ```
 
 Run `carthage update` to build the framework and drag the built `EmptyKit.framework` into your Xcode project.
@@ -195,7 +195,7 @@ extension ProjectNameViewController: ProjectNameEmptyDelegate {}
 
 创建一个`Cartfile`，在其中列出需要的framework
 ```ruby
-github "eilianlove/EmptyKit"	
+github "ZionChang/EmptyKit"	
 ```
 
 命令行运行`carthage update`来构建framework，并且将`EmptyKit.framework`拖拽到Xcode中。
