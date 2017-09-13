@@ -34,6 +34,8 @@ final class EmptyView: UIView {
     var imageView: UIImageView!
     var button: UIButton!
     
+    var autoInset: Bool = true
+    
     // Events
     var didTappedEmptyView:((UIView) -> Void)?
     var didTappedButton:((UIButton) -> Void)?
@@ -50,7 +52,7 @@ final class EmptyView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        guard self.frame != CGRect.zero else { return }
+        guard self.frame != CGRect.zero, autoInset else { return }
         let inset: UIEdgeInsets
         if let tableView = superview as? UIScrollView {
             inset = tableView.contentInset

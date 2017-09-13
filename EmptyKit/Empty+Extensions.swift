@@ -303,6 +303,7 @@ public extension Empty where Base: UIScrollView {
         view.fadeInOnDisplay = delegate?.emptyShouldFadeIn(in: base) ?? true
         view.isHidden = false
         view.clipsToBounds = true
+        view.autoInset = delegate?.emptyShouldAutoAddInsetWhenSuperviewIsScrollView(in: base) ?? true
         view.setupConstraints()
         // animation
         if let animateAllowed = delegate?.emptyShouldAnimateImageView(in: base), animateAllowed == true {
