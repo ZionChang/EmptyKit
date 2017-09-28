@@ -32,11 +32,11 @@ fileprivate extension UIScrollView {
     static func swizzle(originalSelector: Selector, to swizzledSelector: Selector) {
         let originalMethod = class_getInstanceMethod(self, originalSelector)
         let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-        let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
+        let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod!), method_getTypeEncoding(swizzledMethod!))
         if didAddMethod {
-            class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
+            class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod!), method_getTypeEncoding(originalMethod!))
         } else {
-            method_exchangeImplementations(originalMethod, swizzledMethod);
+            method_exchangeImplementations(originalMethod!, swizzledMethod!);
         }
     }
     /**
@@ -75,10 +75,6 @@ extension UITableView {
         UITableView.swizzle(originalSelector: #selector(endUpdates), to: #selector(swizzle_endUpdates))
     }()
     
-    open override class func initialize() {
-        swizzleIfNeeded
-    }
-    
     @objc fileprivate func swizzle_reloadData() {
         swizzle_reloadData()
         ept_reloadData()
@@ -98,9 +94,9 @@ extension UICollectionView {
         UICollectionView.swizzle(originalSelector: #selector(reloadData), to: #selector(swizzle_reloadData))
     }()
     
-    open override class func initialize() {
-        swizzleIfNeeded
-    }
+//    open override class func initialize() {
+//        swizzleIfNeeded
+//    }
     
     @objc fileprivate func swizzle_reloadData() {
         swizzle_reloadData()

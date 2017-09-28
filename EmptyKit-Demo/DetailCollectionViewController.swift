@@ -82,14 +82,15 @@ extension DetailCollectionViewController: EmptyDataSource {
     func titleForEmpty(in view: UIView) -> NSAttributedString? {
         let title = "no data"
         let font = UIFont.systemFont(ofSize: 14)
-        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.black, .font: font]
+        
         return NSAttributedString(string: title, attributes: attributes)
     }
     
     func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString? {
         let title = "click me"
         let font = UIFont.systemFont(ofSize: 17)
-        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.white, .font: font]
         return NSAttributedString(string: title, attributes: attributes)
     }
     
