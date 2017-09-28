@@ -16,6 +16,7 @@ EmptyKit
 
 - iOS 8.0+
 - Xcode 8.0+
+- Swift4 (EmptyKit 4.x) Swift3(EmptyKit 3.x)
 
 ## Installation
 
@@ -41,7 +42,7 @@ You can use [CocoaPods](http://cocoapods.org/) to install `EmptyKit` by adding i
 ```ruby
 platform :ios, '8.0'
 use_frameworks!
-pod 'EmptyKit', '~> 3.1.3'
+pod 'EmptyKit'
 ```
 
 Then, run the following command:
@@ -84,14 +85,14 @@ extension DetailTableViewController: EmptyDataSource {
     func titleForEmpty(in view: UIView) -> NSAttributedString? {
         let title = "no data"
         let font = UIFont.systemFont(ofSize: 14)
-        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.black, .font: font]
         return NSAttributedString(string: title, attributes: attributes)
     }
 
     func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString? {
         let title = "click me"
         let font = UIFont.systemFont(ofSize: 17)
-        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.white, .font: font]
         return NSAttributedString(string: title, attributes: attributes)
     }
 
@@ -251,14 +252,14 @@ extension DetailTableViewController: EmptyDataSource {
     func titleForEmpty(in view: UIView) -> NSAttributedString? {
         let title = "no data"
         let font = UIFont.systemFont(ofSize: 14)
-        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.black, NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.black, .font: font]
         return NSAttributedString(string: title, attributes: attributes)
     }
 
     func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString? {
         let title = "click me"
         let font = UIFont.systemFont(ofSize: 17)
-        let attributes: [String : Any] = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font]
+        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.white, .font: font]
         return NSAttributedString(string: title, attributes: attributes)
     }
 
@@ -347,7 +348,7 @@ extension ProjectNameViewController: ProjectNameEmptyDelegate {}
 
 </span>
 
-[swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
+[swift-image]:https://img.shields.io/badge/swift-4.0-orange.svg
 [swift-url]: https://swift.org/
 
 ### License
