@@ -131,7 +131,7 @@ public protocol EmptyDelegate: class {
      */
     func emptyDidDisAppear(in view: UIView)
     
-    /// 是否允许自动增加Inset来调整位置（默认true)
+    /// 是否允许自动增加Inset来调整位置（默认false)
     func emptyShouldAutoAddInsetWhenSuperviewIsScrollView(in view: UIView) -> Bool
 
     
@@ -182,9 +182,9 @@ public extension EmptyDelegate {
     func emptyDidDisAppear(in view: UIView) {
     }
     
-    /// 是否允许自动增加Inset来调整位置（默认true)
+    /// 是否允许自动增加Inset来调整位置（默认false)
     func emptyShouldAutoAddInsetWhenSuperviewIsScrollView(in view: UIView) -> Bool {
-        return true
+        return false
     }
     
 }
