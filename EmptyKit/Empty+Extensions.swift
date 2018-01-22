@@ -94,10 +94,6 @@ extension UICollectionView {
         UICollectionView.swizzle(originalSelector: #selector(reloadData), to: #selector(swizzle_reloadData))
     }()
     
-//    open override class func initialize() {
-//        swizzleIfNeeded
-//    }
-    
     @objc fileprivate func swizzle_reloadData() {
         swizzle_reloadData()
         ept_reloadData()
@@ -113,12 +109,16 @@ public extension Empty where Base: UIScrollView {
             return objc_getAssociatedObject(base, &datasourceKey) as? EmptyDataSource
         }
         set {
+            UITableView.swizzleIfNeeded
+            UICollectionView.swizzleIfNeeded
             objc_setAssociatedObject(base, &datasourceKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
         }
     }
     
     weak var delegate: EmptyDelegate? {
         get {
+            UITableView.swizzleIfNeeded
+            UICollectionView.swizzleIfNeeded
             return objc_getAssociatedObject(base, &delegateKey) as? EmptyDelegate
         }
         set {

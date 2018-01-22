@@ -22,7 +22,6 @@
 		45F0922E1DE3E9BE008B7428 /* EmptyKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45F092261DE3E9BE008B7428 /* EmptyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		45F092401DE3F10E008B7428 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F0923F1DE3F10E008B7428 /* MainTableViewController.swift */; };
 		45F092421DE3F380008B7428 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F092411DE3F380008B7428 /* DetailTableViewController.swift */; };
-		AC5E71F71F7CA06A004E09F3 /* Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5E71F61F7CA06A004E09F3 /* Swizzle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +66,6 @@
 		45F092291DE3E9BE008B7428 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45F0923F1DE3F10E008B7428 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		45F092411DE3F380008B7428 /* DetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
-		AC5E71F61F7CA06A004E09F3 /* Swizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swizzle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				455341381DE5DC4300F3229C /* Empty+Extensions.swift */,
-				AC5E71F61F7CA06A004E09F3 /* Swizzle.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -291,7 +288,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC5E71F71F7CA06A004E09F3 /* Swizzle.swift in Sources */,
 				4553413F1DE5DC4300F3229C /* EmptyDelegate.swift in Sources */,
 				455341401DE5DC4300F3229C /* EmptyView.swift in Sources */,
 				4553413C1DE5DC4300F3229C /* Empty.swift in Sources */,
