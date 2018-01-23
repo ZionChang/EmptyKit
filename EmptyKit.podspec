@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "EmptyKit"
-  s.version      = "4.0.0"
+  s.version      = "4.0.1"
   s.summary      = "A lightweight, swift library for displaying emptyView whenever the view(tableView/collectionView) has no content to display, just like DZNEmptyDataSet."
   s.homepage     = "https://github.com/ZionChang/EmptyKit"
   s.license       = { :type => 'MIT', :file => 'LICENSE' }
