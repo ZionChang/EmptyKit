@@ -261,7 +261,7 @@ internal extension EmptyView {
         }
         
         // Assign the vertical constraints to the content view
-        if (verticalFormat.characters.count > 0) {
+        if (verticalFormat.count > 0) {
             contentView.addConstraints(withVisualFormat: "V:|\(verticalFormat)|", metrics: metrics, views: views)
         }
     }
