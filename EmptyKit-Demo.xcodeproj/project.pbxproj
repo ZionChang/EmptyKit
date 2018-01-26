@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A27BC96201ABF1100D40C9A /* DetailScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27BC95201ABF1100D40C9A /* DetailScrollViewController.swift */; };
 		452ABDD31DE426420004A9F7 /* DetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452ABDD21DE426420004A9F7 /* DetailCollectionViewController.swift */; };
 		4553413C1DE5DC4300F3229C /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455341371DE5DC4300F3229C /* Empty.swift */; };
 		4553413D1DE5DC4300F3229C /* Empty+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455341381DE5DC4300F3229C /* Empty+Extensions.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A27BC95201ABF1100D40C9A /* DetailScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScrollViewController.swift; sourceTree = "<group>"; };
 		452ABDD21DE426420004A9F7 /* DetailCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewController.swift; sourceTree = "<group>"; };
 		455341371DE5DC4300F3229C /* Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		455341381DE5DC4300F3229C /* Empty+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Empty+Extensions.swift"; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				45F091FC1DE3E901008B7428 /* Info.plist */,
 				45F092411DE3F380008B7428 /* DetailTableViewController.swift */,
 				452ABDD21DE426420004A9F7 /* DetailCollectionViewController.swift */,
+				3A27BC95201ABF1100D40C9A /* DetailScrollViewController.swift */,
 			);
 			path = "EmptyKit-Demo";
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				45F092421DE3F380008B7428 /* DetailTableViewController.swift in Sources */,
 				452ABDD31DE426420004A9F7 /* DetailCollectionViewController.swift in Sources */,
 				45F092401DE3F10E008B7428 /* MainTableViewController.swift in Sources */,
+				3A27BC96201ABF1100D40C9A /* DetailScrollViewController.swift in Sources */,
 				45F091F11DE3E901008B7428 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
