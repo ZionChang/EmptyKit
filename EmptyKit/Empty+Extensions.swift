@@ -275,7 +275,7 @@ public extension Empty where Base: UIScrollView {
             view.titleLabel.attributedText = dataSource.titleForEmpty(in: base)
             view.detailLabel.attributedText = dataSource.descriptionForEmpty(in: base)
             let image = dataSource.imageForEmpty(in: base)
-            view.imageView.image = image?.withRenderingMode(dataSource.imageTintColorForEmpty(in: base) == nil ? UIImageRenderingMode.alwaysOriginal : UIImageRenderingMode.alwaysTemplate)
+            view.imageView.image = image?.withRenderingMode(dataSource.imageTintColorForEmpty(in: base) == nil ? UIImage.RenderingMode.alwaysOriginal : UIImage.RenderingMode.alwaysTemplate)
             view.imageView.tintColor = dataSource.imageTintColorForEmpty(in: base)
             view.button.setImage(dataSource.buttonImageForEmpty(forState: .normal, in: base), for: .normal)
             view.button.setImage(dataSource.buttonImageForEmpty(forState: .highlighted, in: base), for: .highlighted)

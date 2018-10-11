@@ -69,14 +69,14 @@ extension DetailTableViewController: EmptyDataSource {
     func titleForEmpty(in view: UIView) -> NSAttributedString? {
         let title = "no data"
         let font = UIFont.systemFont(ofSize: 14)
-        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.black, .font: font]
+        let attributes: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.black, .font: font]
         return NSAttributedString(string: title, attributes: attributes)
     }
 
-    func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString? {
+    func buttonTitleForEmpty(forState state: UIControl.State, in view: UIView) -> NSAttributedString? {
         let title = "click me"
         let font = UIFont.systemFont(ofSize: 17)
-        let attributes: [NSAttributedStringKey : Any] = [.foregroundColor: UIColor.white, .font: font]
+        let attributes: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.white, .font: font]
         return NSAttributedString(string: title, attributes: attributes)
     }
 

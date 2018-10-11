@@ -119,7 +119,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A title you want to display in the different state of button
      */
-    func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString?
+    func buttonTitleForEmpty(forState state: UIControl.State, in view: UIView) -> NSAttributedString?
     /**
      Ask the datasource for a image you want to display in the different state of button. Default is nil
      
@@ -130,7 +130,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A image you want to display in the different state of button
      */
-    func buttonImageForEmpty(forState state: UIControlState, in view: UIView) -> UIImage?
+    func buttonImageForEmpty(forState state: UIControl.State, in view: UIView) -> UIImage?
     /**
      Ask the datasource for a background image you want to display in the different state of button. Default is nil
      
@@ -141,7 +141,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A background image you want to display in the different state of button
      */
-    func buttonBackgroundImageForEmpty(forState state: UIControlState, in view: UIView) -> UIImage?
+    func buttonBackgroundImageForEmpty(forState state: UIControl.State, in view: UIView) -> UIImage?
     /**
      Ask the datasource for a background color you want to display in the different state of button. Default is clear
      
@@ -228,15 +228,15 @@ public extension EmptyDataSource {
         return 20
     }
     
-    func buttonTitleForEmpty(forState state: UIControlState, in view: UIView) -> NSAttributedString? {
+    func buttonTitleForEmpty(forState state: UIControl.State, in view: UIView) -> NSAttributedString? {
         return nil
     }
     
-    func buttonImageForEmpty(forState state: UIControlState, in view: UIView) -> UIImage? {
+    func buttonImageForEmpty(forState state: UIControl.State, in view: UIView) -> UIImage? {
         return nil
     }
     
-    func buttonBackgroundImageForEmpty(forState state: UIControlState, in view: UIView) -> UIImage? {
+    func buttonBackgroundImageForEmpty(forState state: UIControl.State, in view: UIView) -> UIImage? {
         return nil
     }
     
