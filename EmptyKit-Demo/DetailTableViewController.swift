@@ -88,6 +88,11 @@ extension DetailTableViewController: EmptyDataSource {
         return nil
     }
     
+    func prepareButtonForEmpty(in view: UIView, button: UIButton) {
+        button.layer.cornerRadius = 6
+        button.layer.masksToBounds = true
+    }
+    
 
 }
 
