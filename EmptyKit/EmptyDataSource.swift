@@ -119,6 +119,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A title you want to display in the different state of button
      */
+    @available(*, deprecated, message: "Please use prepareButtonForEmpty(in: button:) instead")
     func buttonTitleForEmpty(forState state: UIControl.State, in view: UIView) -> NSAttributedString?
     /**
      Ask the datasource for a image you want to display in the different state of button. Default is nil
@@ -130,6 +131,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A image you want to display in the different state of button
      */
+    @available(*, deprecated, message: "Please use prepareButtonForEmpty(in: button:) instead")
     func buttonImageForEmpty(forState state: UIControl.State, in view: UIView) -> UIImage?
     /**
      Ask the datasource for a background image you want to display in the different state of button. Default is nil
@@ -141,6 +143,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A background image you want to display in the different state of button
      */
+    @available(*, deprecated, message: "Please use prepareButtonForEmpty(in: button:) instead")
     func buttonBackgroundImageForEmpty(forState state: UIControl.State, in view: UIView) -> UIImage?
     /**
      Ask the datasource for a background color you want to display in the different state of button. Default is clear
@@ -152,6 +155,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A background color you want to display in the different state of button
      */
+    @available(*, deprecated, message: "Please use prepareButtonForEmpty(in: button:) instead")
     func buttonBackgroundColorForEmpty(in view: UIView) -> UIColor
     /**
      Ask the datasource for a minimum width of the button. Default is 120 pts.
@@ -163,6 +167,7 @@ public protocol EmptyDataSource: class {
      
      - returns: A minimum width of the button.
      */
+    @available(*, deprecated, message: "Please use prepareButtonForEmpty(in: button:) instead")
     func buttonMinimumWidthForEmpty(in view: UIView) -> CGFloat?
     /**
      Ask the datasource for a background color of the empty view. Default is clear.
@@ -186,6 +191,18 @@ public protocol EmptyDataSource: class {
      - returns: A custom view you want to display in empty view.
      */
     func customViewForEmpty(in view: UIView) -> UIView?
+    
+    /**
+     for a custom preparation of the action button. Will be called if either text, at
+     
+     - author: Zombie
+     - date: 2019-02-26
+     
+     - parameter view: Empty view's superview
+     - parameter button: Empty view's button
+     
+     */
+    func prepareButtonForEmpty(in view: UIView, button: UIButton)
     
 }
 
@@ -256,6 +273,9 @@ public extension EmptyDataSource {
         return nil
     }
     
+    func prepareButtonForEmpty(in view: UIView, button: UIButton) {
+        
+    }
 }
 
 // MARK: - UIViewController

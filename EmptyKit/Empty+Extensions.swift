@@ -287,6 +287,8 @@ public extension Empty where Base: UIScrollView {
             view.button.setAttributedTitle(dataSource.buttonTitleForEmpty(forState: .highlighted, in: base), for: .highlighted)
             view.button.setAttributedTitle(dataSource.buttonTitleForEmpty(forState: .selected, in: base), for: .selected)
             view.button.backgroundColor = dataSource.buttonBackgroundColorForEmpty(in: base)
+            
+            dataSource.prepareButtonForEmpty(in: base, button: view.button)
         }
         // common
         base.isScrollEnabled = delegate?.emptyShouldAllowScroll(in: base) ?? base.isScrollEnabled
